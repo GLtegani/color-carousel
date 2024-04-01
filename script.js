@@ -2,6 +2,7 @@
 const imageColors = document.querySelector('.image-color');
 const colorName = document.querySelector('.color-name');
 const itemWithColor = document.querySelector('.item-with-color');
+const txt = document.querySelector('.about');
 const previousBtn = document.querySelector('.previous');
 const nextBtn = document.querySelector('.next');
 const randomColor = document.querySelector('.random-color');
@@ -30,5 +31,5 @@ let indexOfItemsColor = itemsColor.map((element, index) => index);
 nextBtn.addEventListener('click', nextColor());
 
 const nextColor = () => {
-   
+
 }
