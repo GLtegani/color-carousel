@@ -1,0 +1,161 @@
+/* CONFIG */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:root {
+   font-size: 62.5%;
+
+   /* COLORS */
+   --bg-body: rgb(242, 248, 248);
+   --titles-color: rgb(8, 8, 102);
+   --btn-and-item-color: rgb(53, 175, 212);
+   --content-container: white;
+   --txt-color: rgba(97, 92, 92, 0.932);
+}
+
+body {
+   font-size: 1.6rem;
+   background-color: var(--bg-body);
+}
+
+#page {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+#main-title {
+   color: var(--titles-color);
+}
+
+.color-name {
+   font-size: 2.5rem;
+   color: red;
+}
+
+.item-with-color {
+   color: red;
+}
+
+.btn, .random-color {
+   color: var(--btn-and-item-color);
+}
+
+#page-content {
+   background-color: var(--content-container);
+}
+
+.about {
+   color: var(--txt-color);
+}
+
+
+/* HEADER */
+
+#title-area {
+   margin-top: 4rem;
+}
+
+#main-title {
+   font-size: 5rem;
+}
+
+.border {
+   padding: 0.3rem;
+   margin: 1rem auto 10rem;
+   width: 40%;
+   background-color: var(--btn-and-item-color);
+}
+
+
+/* MAIN */
+
+#page-content {
+   width: 85%;
+   padding: 3rem;
+   border-radius: 0.8rem;
+   box-shadow: 0.2rem 0.1rem 2rem black;
+   transition: 0.2s;
+   margin-bottom: 2rem;
+}
+
+#page-content:hover {
+   transform: scale(1.01);
+}
+
+
+/* COLOR CONTAINER */
+
+#color-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.image-color {
+   background-color: red;
+   padding: 5rem;
+   margin-bottom: 2rem;
+   width: 30%;
+   border-radius: 0.8rem;
+}
+
+.item-with-color {
+   margin-bottom: 1rem;
+   font-size: 2.1rem;
+}
+
+.about {
+   text-align: center;
+   font-size: 2rem;
+   padding: 0 2rem;
+   margin-bottom: 2rem;
+}
+
+
+/* BUTTONS */
+
+#btn-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 1rem;
+}
+
+.nav-btns {
+   display: flex;
+   gap: 2.5rem;
+}
+
+.btn {
+   background: none;
+   border: none;
+   font-size: 2.8rem;
+   cursor: pointer;
+   padding: 0.2rem;
+   transition: 0.2s;
+}
+
+.btn:hover {
+   color: var(--titles-color);
+}
+
+.random-color {
+   padding: 0.5rem;
+   border-radius: 0.8rem;
+   border-color: var(--btn-and-item-color);
+   background-color: rgba(107, 200, 228, 0.171);
+   cursor: pointer;
+   transition: 0.2s;
+}
+
+.random-color:hover {
+   background-color: var(--btn-and-item-color);
+   color: white;
+}
