@@ -7,6 +7,9 @@ const previousBtn = document.querySelector('.previous');
 const nextBtn = document.querySelector('.next');
 const randomColor = document.querySelector('.random-color');
 
+let index = 1;
+
+
 // ARRAYS
 let colors = [
    'red',
@@ -27,9 +30,22 @@ let itemsColor = [
 let indexOfItemsColor = itemsColor.map((element, index) => index);
 
 // FUNCTIONS
-
-nextBtn.addEventListener('click', nextColor());
-
 const nextColor = () => {
+   imageColors.style.backgroundColor = colors[index++];
+
+   if(index == indexOfColors.length) {
+      index = 0;
+   };
+};
+
+const previousColor = () => {
+   imageColors.style.backgroundColor = colors[index--];
+
+   if(index == -1) {
+      index = indexOfColors.length;
+   };
 
 }
+
+nextBtn.addEventListener('click', nextColor);
+previousBtn.addEventListener('click', previousColor);
