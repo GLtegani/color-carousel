@@ -1,4 +1,4 @@
-// VARIABLES
+// VAR
 const imageColors = document.querySelector('.image-color');
 const colorName = document.querySelector('.color-name');
 const itemWithColor = document.querySelector('.item-with-color');
@@ -7,47 +7,118 @@ const previousBtn = document.querySelector('.previous');
 const nextBtn = document.querySelector('.next');
 const randomColor = document.querySelector('.random-color');
 
+// SET STARTING ITEM
+let currentItem = 0;
 
 
-// ARRAYS
+// INFO
 let colorsAndItemsColor = [
    
    {
-      red: 'red',
-      blue: 'blue',
-      indigo: 'indigo',
-      orange: 'orange',
+      color: 'red',
+      item: 'tomato',
+      text: `This is a text about colors, Im doing a
+      carrousel with HTML, CSS AND JS and I need
+      to make a dynamic text. TEXT: ONE`,
    },
 
    {
-      tomato: 'tomato',
-      sky: 'sky',
-      indigoBunting: 'indigo bunting',
-      carrot: 'carrot',
+      color: 'blue',
+      item: 'sky',
+      text: `This is a text about colors, Im doing a
+      carrousel with HTML, CSS AND JS and I need
+      to make a dynamic text. TEXT: TWO`,
    },
 
+   {
+      color: 'indigo',
+      item: 'indigo bunting',
+      text: `This is a text about colors, Im doing a
+      carrousel with HTML, CSS AND JS and I need
+      to make a dynamic text. TEXT: THREE`,
+   },
+
+   {
+      color: 'orange',
+      item: 'carrot',
+      text: `This is a text about colors, Im doing a
+      carrousel with HTML, CSS AND JS and I need
+      to make a dynamic text. TEXT: FOUR`,
+   },
+
+   {
+      color: 'aqua',
+      item: 'water',
+      text: `This is a text about colors, Im doing a
+      carrousel with HTML, CSS AND JS and I need
+      to make a dynamic text. TEXT: FIVE`,
+   }, 
 ];
 
-let currentItem = 0;
-// FUNCTIONS
+// LOAD INITIAL ITEM
+window.addEventListener('DOMContentLoaded', function() {
+   
+   showPerson(currentItem);
 
-const loadFirstItem = () => {
+});
 
-}
+// SHOW PERSON BASED ON ITEM
+
+const showPerson = (person) => {
+   
+   const objects = colorsAndItemsColor[person];
+   imageColors.style.backgroundColor = objects.color;
+   colorName.style.color = objects.color;
+   colorName.textContent = objects.color;
+   itemWithColor.style.color = objects.color;
+   itemWithColor.textContent = objects.item;
+   txt.textContent = objects.text;
+
+};
+
+// SHOW NEXT PERSON
 
 const nextColor = () => {
    
-   imageColors.style.backgroundColor = colors[currentItem++];
-   
+   currentItem++;
+
+   if(currentItem > colorsAndItemsColor.length - 1) {
+      
+      currentItem = 0;
+   };
+
+   showPerson(currentItem);
+
 };
 
+
+// SHOW PREV PERSON
 
 const previousColor = () => {
-   imageColors.style.backgroundColor = colors[currentItem--];
    
+   currentItem--;
+
+   if(currentItem < 0) {
+      
+      currentItem = colorsAndItemsColor.length - 1;
+   };
+
+   showPerson(currentItem);
 
 };
 
-window.addEventListener('DOMContentLoaded', loadFirstItem);
+// SHOW RANDOM COLOR
+
+const showRandomizedColor = () => {
+
+   currentItem = Math.round(Math.random() * colorsAndItemsColor.length);
+
+   showPerson(currentItem);
+
+};
+
+
+// EVENTS
 nextBtn.addEventListener('click', nextColor);
 previousBtn.addEventListener('click', previousColor);
+randomColor.addEventListener('click', showRandomizedColor);
