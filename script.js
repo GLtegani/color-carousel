@@ -7,45 +7,53 @@ const previousBtn = document.querySelector('.previous');
 const nextBtn = document.querySelector('.next');
 const randomColor = document.querySelector('.random-color');
 
-let index = 1;
 
 
 // ARRAYS
-let colors = [
-   'red',
-   'blue',
-   'indigo',
-   'orange',
+let colorsAndItemsColor = [
+   
+   {
+      red: 'red',
+      blue: 'blue',
+      indigo: 'indigo',
+      orange: 'orange',
+   },
+
+   {
+      tomato: 'tomato',
+      sky: 'sky',
+      indigoBunting: 'indigo bunting',
+      carrot: 'carrot',
+   },
+
 ];
 
-let indexOfColors = colors.map((element, index) => index);
-
-let itemsColor = [
-   'tomato',
-   'sky',
-   'indigo bunting',
-   'carrot',
-];
-
-let indexOfItemsColor = itemsColor.map((element, index) => index);
-
+let currentItem = 0;
 // FUNCTIONS
-const nextColor = () => {
-   imageColors.style.backgroundColor = colors[index++];
 
-   if(index == indexOfColors.length) {
-      index = 0;
+const loadFirstItem = () => {
+   
+}
+
+const nextColor = () => {
+   
+   imageColors.style.backgroundColor = colors[currentItem++];
+   
+   if(currentItem == indexOfColors.length) {
+      currentItem = 0;
    };
 };
 
-const previousColor = () => {
-   imageColors.style.backgroundColor = colors[index--];
 
-   if(index == -1) {
-      index = indexOfColors.length;
+const previousColor = () => {
+   imageColors.style.backgroundColor = colors[currentItem--];
+   
+   if(currentItem < 0) {
+      currentItem = indexOfColors.length - 1;
    };
 
-}
+};
 
+window.addEventListener('DOMContentLoaded', loadFirstItem);
 nextBtn.addEventListener('click', nextColor);
 previousBtn.addEventListener('click', previousColor);
