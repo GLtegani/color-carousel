@@ -32,25 +32,19 @@ let currentItem = 0;
 // FUNCTIONS
 
 const loadFirstItem = () => {
-   
+
 }
 
 const nextColor = () => {
    
    imageColors.style.backgroundColor = colors[currentItem++];
    
-   if(currentItem == indexOfColors.length) {
-      currentItem = 0;
-   };
 };
 
 
 const previousColor = () => {
    imageColors.style.backgroundColor = colors[currentItem--];
    
-   if(currentItem < 0) {
-      currentItem = indexOfColors.length - 1;
-   };
 
 };
 
