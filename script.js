@@ -6,6 +6,12 @@ const txt = document.querySelector('.about');
 const previousBtn = document.querySelector('.previous');
 const nextBtn = document.querySelector('.next');
 const randomColor = document.querySelector('.random-color');
+const form = document.querySelector('form');
+const colorInput = document.querySelector('#color-input');
+const itemInput = document.querySelector('#item-input');
+const textInput = document.querySelector('#text-input');
+const formBtn = document.querySelector('.send-color-info');
+
 
 // SET STARTING ITEM
 let currentItem = 0;
@@ -52,7 +58,16 @@ let colorsAndItemsColor = [
       text: `This is a text about colors, Im doing a
       carrousel with HTML, CSS AND JS and I need
       to make a dynamic text. TEXT: FIVE`,
-   }, 
+   },
+
+   {
+      color: 'darksalmon',
+      item: 'salmon',
+      text: `This is a text about colors, Im doing a
+      carrousel with HTML, CSS AND JS and I need
+      to make a dynamic text. TEXT: SIX`,
+   },
+
 ];
 
 // LOAD INITIAL ITEM
@@ -63,10 +78,9 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 // SHOW PERSON BASED ON ITEM
-
-const showPerson = (person) => {
+const showPerson = (item) => {
    
-   const objects = colorsAndItemsColor[person];
+   const objects = colorsAndItemsColor[item];
    imageColors.style.backgroundColor = objects.color;
    colorName.style.color = objects.color;
    colorName.textContent = objects.color;
@@ -77,7 +91,6 @@ const showPerson = (person) => {
 };
 
 // SHOW NEXT PERSON
-
 const nextColor = () => {
    
    currentItem++;
@@ -93,7 +106,6 @@ const nextColor = () => {
 
 
 // SHOW PREV PERSON
-
 const previousColor = () => {
    
    currentItem--;
@@ -108,7 +120,6 @@ const previousColor = () => {
 };
 
 // SHOW RANDOM COLOR
-
 const showRandomizedColor = () => {
 
    currentItem = Math.round(Math.random() * colorsAndItemsColor.length);
@@ -117,8 +128,33 @@ const showRandomizedColor = () => {
 
 };
 
+// USER FORM
+const sendUserInfo = (event) => {
+   
+   event.preventDefault();
+   
+   let userColorInput = colorInput.value;
+   let userItemInput = itemInput.value;
+   let userTextInput = textInput.value;
+
+   if(userColorInput == '') {
+      
+      colorInput.style.bo = 'red';
+      formBtn = '';
+   };
+
+   colorsAndItemsColor.push({
+      color: userColorInput,
+      item: userItemInput,
+      text: userTextInput,
+   });
+
+};
+
+
 
 // EVENTS
 nextBtn.addEventListener('click', nextColor);
 previousBtn.addEventListener('click', previousColor);
 randomColor.addEventListener('click', showRandomizedColor);
+formBtn.addEventListener('click', sendUserInfo);

@@ -14,6 +14,7 @@
    --btn-and-item-color: rgb(53, 175, 212);
    --content-container: white;
    --txt-color: rgba(97, 92, 92, 0.932);
+   --placeholder-color : rgba(173, 170, 170, 0.932);
 }
 
 body {
@@ -28,15 +29,23 @@ body {
    align-items: center;
 }
 
-#main-title {
+#main-title, .form-title {
    color: var(--titles-color);
 }
+
+.border {
+   padding: 0.3rem;
+   margin: 1rem auto 3rem;
+   width: 40%;
+   background-color: var(--btn-and-item-color);
+}
+
 
 .color-name {
    font-size: 2.5rem;
 }
 
-.btn, .random-color {
+.btn, .random-color, .send-color-info {
    color: var(--btn-and-item-color);
 }
 
@@ -57,13 +66,6 @@ body {
 
 #main-title {
    font-size: 5rem;
-}
-
-.border {
-   padding: 0.3rem;
-   margin: 1rem auto 10rem;
-   width: 40%;
-   background-color: var(--btn-and-item-color);
 }
 
 
@@ -140,7 +142,7 @@ body {
    color: var(--titles-color);
 }
 
-.random-color {
+.random-color, .send-color-info {
    padding: 0.5rem;
    border-radius: 0.8rem;
    border-color: var(--btn-and-item-color);
@@ -149,7 +151,49 @@ body {
    transition: 0.2s;
 }
 
-.random-color:hover {
+.random-color:hover, .send-color-info:hover {
    background-color: var(--btn-and-item-color);
    color: white;
+}
+
+/* FORM TO SEND USER COLOR */
+
+.form-container {
+   background-color: var(--bg-body);
+   border: 0.1rem solid var(--btn-and-item-color);
+   width: 30%;
+   border-radius: 0.8rem;
+   margin-top: 2rem;
+   padding: 5rem;
+}
+
+form{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 1rem;
+   bor
+}
+
+.form-title {
+   font-size: 2.5rem;
+}
+
+label {
+   color: var(--txt-color);
+}
+
+input::placeholder, textarea::placeholder {
+   color: var(--placeholder-color);
+}
+
+input, textarea {
+   padding: 0.5rem;
+   border: 0.1rem solid var(--btn-and-item-color);
+}
+
+textarea {
+   resize: none;
+   height: 10rem;
 }
