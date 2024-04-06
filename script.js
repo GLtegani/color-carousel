@@ -136,28 +136,40 @@ const sendUserInfo = (event) => {
    let userColorInput = colorInput.value;
    let userItemInput = itemInput.value;
    let userTextInput = textInput.value;
+   let colorAlredyExist = colorsAndItemsColor.some(element => element.color == userColorInput);
+   let empty = '';
 
-   if(userColorInput == '') {
+   if(colorAlredyExist) {
       
       colorInput.style.borderColor = 'red';
-      formBtn = '';
+      formBtn = empty;
 
-   } else if(userItemInput == '') {
+   } else if(userItemInput == empty && userTextInput == empty) {
+      
+      itemInput.style.borderColor = 'red';
+      textInput.style.borderColor = 'red';
+      formBtn = empty;
+      
+   } else if(userItemInput == empty) {
 
       itemInput.style.borderColor = 'red';
-      formBtn = '';
+      textInput.style.borderColor = 'rgb(53, 175, 212)';
+      textInput.value = empty;
+      formBtn = empty;
 
-   } else if(userTextInput == '') {
+   } else if(userTextInput == empty) {
 
       textInput.style.borderColor = 'red';
-      formBtn = '';
+      itemInput.style.borderColor = 'rgb(53, 175, 212)';
+      itemInput.value = empty;
+      formBtn = empty;
 
    } else {
 
       colorInput.style.borderColor = 'rgb(53, 175, 212)';
       itemInput.style.borderColor = 'rgb(53, 175, 212)';
       textInput.style.borderColor = 'rgb(53, 175, 212)';
-
+    
       colorsAndItemsColor.push({
 
          color: userColorInput,
@@ -166,8 +178,12 @@ const sendUserInfo = (event) => {
          
       });
 
+      colorInput.value = '#000000';
+      textInput.value = empty;
+      itemInput.value = empty;
+
    };
-   
+
 };
 
 // EVENTS
@@ -175,3 +191,4 @@ nextBtn.addEventListener('click', nextColor);
 previousBtn.addEventListener('click', previousColor);
 randomColor.addEventListener('click', showRandomizedColor);
 formBtn.addEventListener('click', sendUserInfo);
+
