@@ -73,12 +73,12 @@ let colorsAndItemsColor = [
 // LOAD INITIAL ITEM
 window.addEventListener('DOMContentLoaded', function() {
    
-   showPerson(currentItem);
+   showColor(currentItem);
 
 });
 
-// SHOW PERSON BASED ON ITEM
-const showPerson = (item) => {
+// SHOW COLOR BASED ON ITEM
+const showColor = (item) => {
    
    const objects = colorsAndItemsColor[item];
    imageColors.style.backgroundColor = objects.color;
@@ -100,7 +100,7 @@ const nextColor = () => {
       currentItem = 0;
    };
 
-   showPerson(currentItem);
+   showColor(currentItem);
 
 };
 
@@ -115,7 +115,7 @@ const previousColor = () => {
       currentItem = colorsAndItemsColor.length - 1;
    };
 
-   showPerson(currentItem);
+   showColor(currentItem);
 
 };
 
@@ -124,7 +124,7 @@ const showRandomizedColor = () => {
 
    currentItem = Math.round(Math.random() * colorsAndItemsColor.length);
 
-   showPerson(currentItem);
+   showColor(currentItem);
 
 };
 
