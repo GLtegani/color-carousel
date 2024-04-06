@@ -173,7 +173,6 @@ form{
    justify-content: center;
    align-items: center;
    gap: 1rem;
-   bor
 }
 
 .form-title {
@@ -190,7 +189,14 @@ input::placeholder, textarea::placeholder {
 
 input, textarea {
    padding: 0.5rem;
+   width: 20rem;
    border: 0.1rem solid var(--btn-and-item-color);
+   background-color: white;
+}
+
+#color-input {
+   height: 5rem;
+   cursor: pointer;
 }
 
 textarea {

@@ -139,19 +139,36 @@ const sendUserInfo = (event) => {
 
    if(userColorInput == '') {
       
-      colorInput.style.bo = 'red';
+      colorInput.style.borderColor = 'red';
       formBtn = '';
+
+   } else if(userItemInput == '') {
+
+      itemInput.style.borderColor = 'red';
+      formBtn = '';
+
+   } else if(userTextInput == '') {
+
+      textInput.style.borderColor = 'red';
+      formBtn = '';
+
+   } else {
+
+      colorInput.style.borderColor = 'rgb(53, 175, 212)';
+      itemInput.style.borderColor = 'rgb(53, 175, 212)';
+      textInput.style.borderColor = 'rgb(53, 175, 212)';
+
+      colorsAndItemsColor.push({
+
+         color: userColorInput,
+         item: userItemInput,
+         text: userTextInput,
+         
+      });
+
    };
-
-   colorsAndItemsColor.push({
-      color: userColorInput,
-      item: userItemInput,
-      text: userTextInput,
-   });
-
+   
 };
-
-
 
 // EVENTS
 nextBtn.addEventListener('click', nextColor);
