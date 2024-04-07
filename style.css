@@ -161,7 +161,7 @@ body {
 .form-container {
    background-color: var(--bg-body);
    border: 0.1rem solid var(--btn-and-item-color);
-   width: 30%;
+   width: 60%;
    border-radius: 0.8rem;
    margin-top: 2rem;
    padding: 5rem;
