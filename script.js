@@ -139,13 +139,22 @@ const sendUserInfo = (event) => {
    let colorAlredyExist = colorsAndItemsColor.some(element => element.color == userColorInput);
    let empty = '';
 
-   if(colorAlredyExist) {
+   if(colorAlredyExist && userItemInput == empty && userTextInput == empty) {
+      
+      colorInput.style.borderColor = 'red';
+      textInput.style.borderColor = 'red';
+      itemInput.style.borderColor = 'red';
+      formBtn = empty;
+      
+   } else if(colorAlredyExist) {
       
       colorInput.style.borderColor = 'red';
       formBtn = empty;
 
    } else if(userItemInput == empty && userTextInput == empty) {
-      
+
+
+      colorInput.style.borderColor = 'rgb(53, 175, 212)';
       itemInput.style.borderColor = 'red';
       textInput.style.borderColor = 'red';
       formBtn = empty;
@@ -153,6 +162,7 @@ const sendUserInfo = (event) => {
    } else if(userItemInput == empty) {
 
       itemInput.style.borderColor = 'red';
+      colorInput.style.borderColor = 'rgb(53, 175, 212)';
       textInput.style.borderColor = 'rgb(53, 175, 212)';
       textInput.value = empty;
       formBtn = empty;
@@ -160,6 +170,7 @@ const sendUserInfo = (event) => {
    } else if(userTextInput == empty) {
 
       textInput.style.borderColor = 'red';
+      colorInput.style.borderColor = 'rgb(53, 175, 212)';
       itemInput.style.borderColor = 'rgb(53, 175, 212)';
       itemInput.value = empty;
       formBtn = empty;
@@ -183,6 +194,8 @@ const sendUserInfo = (event) => {
       itemInput.value = empty;
 
    };
+
+   
 
 };
 
