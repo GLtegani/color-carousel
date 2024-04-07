@@ -167,7 +167,7 @@ body {
    padding: 5rem;
 }
 
-form{
+form {
    display: flex;
    flex-direction: column;
    justify-content: center;
